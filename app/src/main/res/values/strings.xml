@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BookishInventory</string>
+    <string name="product_name">Product Name:</string>
+    <string name="name_hint">Howl\'s Moving Castle</string>
+    <string name="price">Price (Nearest Dollar): \$</string>
+    <string name="price_hint">10</string>
+    <string name="quantity">Quantity:</string>
+    <string name="quantity_hint">1</string>
+    <string name="supplier_name">Supplier Name:</string>
+    <string name="supplier_hint">Bill\'s Library</string>
+    <string name="supplier_phone">Supplier Phone Number:</string>
+    <string name="phone_hint">1-800-555-2665</string>
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+    <string name="action_delete_all_entries">Delete All Products</string>
+    <string name="action_save">Save</string>
+</resources>
