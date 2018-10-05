@@ -35,6 +35,11 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     private Button mIncrement;
     private EditText mProductSupplier;
     private EditText mSupplierPhone;
+    private Button mOrder;
+
+
+    public String phone;
+
     // individual uri variable, which is passed in through the intent when a list item is clicked.
     public Uri bookUri;
 
@@ -64,6 +69,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mSupplierPhone = findViewById(R.id.product_supplier_number);
         mDecrement = findViewById(R.id.decrement_quant);
         mIncrement = findViewById(R.id.increment_quant);
+        mOrder = findViewById(R.id.order_now);
         // get the uri from the MainActivity intent, if one is available
         Intent intent = getIntent();
         bookUri = intent.getData();
@@ -76,7 +82,10 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         // otherwise, we are in insert mode
         else {
             setTitle(getString(R.string.insert_title));
+            // hide the delete option for insert mode
             invalidateOptionsMenu();
+            // hide the order button while inserting
+            mOrder.setVisibility(View.GONE);
         }
 
         // setup buttons
@@ -322,10 +331,11 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         int priceColumnIndex = cursor.getColumnIndex(BookContract.BookEntry.COLUMN_PRICE);
         int quantityColumnIndex = cursor.getColumnIndex(BookContract.BookEntry.COLUMN_QUANTITY);
         int supplierColumnIndex = cursor.getColumnIndex(BookContract.BookEntry.COLUMN_SUPPLIER_NAME);
-        int supplierPhoneColumnIndex = cursor.getColumnIndex(BookContract.BookEntry.COLUMN_SUPPLIER_PHONE);
+        final int supplierPhoneColumnIndex = cursor.getColumnIndex(BookContract.BookEntry.COLUMN_SUPPLIER_PHONE);
 
         // get values from the cursor
         if (cursor.moveToNext()) {
+            phone = cursor.getString(supplierPhoneColumnIndex);
             mProductName.setText(cursor.getString(nameColumnIndex));
             mProductPrice.setText(Integer.toString(cursor.getInt(priceColumnIndex)));
             mQuantity = cursor.getInt(quantityColumnIndex);
@@ -339,6 +349,17 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             mProductSupplier.setSelection(mProductSupplier.getText().length());
             mSupplierPhone.setSelection(mSupplierPhone.getText().length());
         }
+        // setup Order button
+        mOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                phone = "+" + phone;
+                Intent phoneIntent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                startActivity(phoneIntent);
+
+
+            }
+        });
     }
 
     @Override

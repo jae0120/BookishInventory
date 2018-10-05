@@ -28,7 +28,6 @@
     <string name="keep_editing">Continue Editing</string>
     <string name="sale_button">SALE</string>
     <string name="sold_out">You already sold all of this book!</string>
-    <string name="sale_toast">Congrats, you sold a book!</string>
     <string name="sale_error">Error in selling this book</string>
     <string name="complete_all_fields">Please fill in all fields</string>
     <string name="sample_title">Howl\'s Moving Castle</string>
@@ -36,4 +35,6 @@
     <string name="sample_phoone">1-800-867-5309</string>
     <string name="dummy_added">New Book added.</string>
     <string name="dummy_not_added">No new rows added.</string>
+    <string name="sold">Congrats, you sold a book!</string>
+    <string name="order_button">order now</string>
 </resources>
