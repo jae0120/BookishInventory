@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/name_hint"
-            android:inputType="textCapSentences"/>
+            android:inputType="textCapWords"/>
     </LinearLayout>
 
     <LinearLayout
@@ -56,13 +56,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/quantity" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/decrement_quant"/>
 
-        <EditText
+        <TextView
             android:id="@+id/product_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/quantity_hint"
-            android:inputType="number"/>
+            android:text="1"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/increment_quant"/>
     </LinearLayout>
 
     <LinearLayout
@@ -81,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/supplier_hint"
-            android:inputType="textCapSentences" />
+            android:inputType="textCapWords" />
     </LinearLayout>
 
     <LinearLayout
