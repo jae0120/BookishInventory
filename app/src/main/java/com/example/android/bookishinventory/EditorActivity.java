@@ -142,17 +142,17 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
             int rowsUpdated = getContentResolver().update(bookUri, values, null, null);
             if (rowsUpdated > 0) {
-                Toast.makeText(this, "Product Updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.update_toast, Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Update failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.update_fail_toast, Toast.LENGTH_SHORT).show();
             }
         } else {
             // insert values into the table
             Uri newUri = getContentResolver().insert(BookEntry.CONTENT_URI, values);
             if (newUri != null) {
-                Toast.makeText(this, "New Book added.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.insert_toast, Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "No new books added.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.insert_failed_toast, Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -182,12 +182,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         switch (item.getItemId()) {
             // Respond to a click on the "Save" menu option
             case R.id.action_save:
-              // if all fields are empty, just return
-                if (TextUtils.isEmpty(mProductName.getText()) && TextUtils.isEmpty(mProductPrice.getText())
-                        && TextUtils.isEmpty(mProductSupplier.getText()) && TextUtils.isEmpty(mSupplierPhone.getText())) {
-                    finish();
-                    return true;
-                }
+
                 // if any fields are incomplete, ask user to complete them
                 if (TextUtils.isEmpty(mProductName.getText()) || TextUtils.isEmpty(mProductPrice.getText())
                         || TextUtils.isEmpty(mProductSupplier.getText()) || TextUtils.isEmpty(mSupplierPhone.getText())) {

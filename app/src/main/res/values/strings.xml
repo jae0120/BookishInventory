@@ -37,4 +37,8 @@
     <string name="dummy_not_added">No new rows added.</string>
     <string name="sold">Congrats, you sold a book!</string>
     <string name="order_button">order now</string>
+    <string name="update_toast">Product Updated</string>
+    <string name="update_fail_toast">Update failed</string>
+    <string name="insert_toast">New Book added.</string>
+    <string name="insert_failed_toast">No new books added.</string>
 </resources>
